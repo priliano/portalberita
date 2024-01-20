@@ -12,6 +12,10 @@ class Image
     public function __construct($con)
     {
         $this->con = $con;
+
+        if (!file_exists($this->targetDir)) {
+            mkdir($this->targetDir, 0777, true);
+        }
     }
 
     public function findById($id)
