@@ -11,3 +11,5 @@ Removing copyright information without the license will result in suspension of 
 
 anggota kelompol: 
  - I Putu Bagus Nanda Widnyana (220010031) 
+ - Dimas Priliano (220010089)
+ - 
