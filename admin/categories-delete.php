@@ -1,9 +1,9 @@
 <?php
-if (isset($_GET['id_category'])) {
-  $idcategory = $_GET['id_category'];
+if (isset($_GET['id'])) {
+  $idcategory = $_GET['id'];
 
-  include "koneksi.php";
-  $qry = "DELETE FROM category WHERE id_category = '$idcategory'";
+  include "config.php";
+  $qry = "DELETE FROM categories WHERE id = '$idcategory'";
   $exec = mysqli_query($con, $qry);
 
   if ($exec) {
