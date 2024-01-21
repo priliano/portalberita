@@ -1,3 +1,5 @@
+<?php require_once "config.php" ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,6 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin ZenZet News</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet'>
+
+  <!-- <link rel="shortcut icon" href="img/favicon.png"> -->
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet'>
 
   <!-- Syntax Highlighter -->
@@ -22,7 +27,8 @@
   <style>
     body {
       display: flex;
-      background-color: #f8f9fa; /* Warna seragam */
+      background-color: #f8f9fa;
+      /* Warna seragam */
     }
 
     #main-wrapper {
@@ -32,12 +38,14 @@
 
     #sidebar {
       width: 200px;
-      background-color: orange; /* Warna orange */
+      background-color: orange;
+      /* Warna orange */
       padding: 20px;
     }
 
     table thead {
-      background-color: orange; /* Warna orange */
+      background-color: orange;
+      /* Warna orange */
       color: white;
     }
 
@@ -51,7 +59,7 @@
 </head>
 
 <body>
-  <div class="container-fluid">
+  <div class="container-fluid p-0">
     <?php require_once "./sidebar.php" ?>
 
     <div id="main-wrapper">
@@ -70,13 +78,7 @@
             </tr>
           </thead>
           <tbody>
-            <?php
-            include "koneksi.php";
-            $qry = "SELECT id, username, password, nama, role from login";
-            $exec = mysqli_query($con, $qry);
-
-            while ($data = mysqli_fetch_assoc($exec)) {
-            ?>
+            <?php foreach ($userService->list() as $data) { ?>
               <tr>
                 <!-- <th scope="row"></th> -->
                 <td class="align-middle"><?= $data['id'] ?></td>
@@ -85,17 +87,16 @@
                 <td class="align-middle"><?= $data['nama'] ?></td>
                 <td class="align-middle"><?= $data['role'] ?></td>
                 <td>
-                  <a class="btn btn-success" href="form_edit_mahasiswa.php?id=<?= $data['id'] ?>" role="button">Edit</a>
-                  <a class="btn btn-danger" href="delete.php?id=<?= $data['id'] ?>" role="button">Delete</a>
+                  <a class="btn btn-success" href="index-edit.php?id=<?= $data['id'] ?>" role="button">Edit</a>
+                  <a class="btn btn-danger" href="delete-php?id=<?= $data['id'] ?>" role="button">Delete</a>
                 </td>
               </tr>
             <?php } ?>
           </tbody>
         </table>
-        <a class="btn btn-primary" href="form_mahasiswa.php" role="button">Tambah Data User</a>
+        <a class="btn btn-primary" href="index-add.php" role="button">Tambah Data User</a>
       </div>
     </div>
-  </div>
 </body>
 
 </html>

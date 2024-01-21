@@ -1,12 +1,21 @@
-<?php require_once "config.php" ?>
+<?php require_once "config.php";
 
+if (isset($_POST['submit_user'])) {
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+  $nama = $_POST['nama'];
+  $role = $_POST['role'];
+
+  $userService->save($username, $password, $nama, $role);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Form</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet'>
 
@@ -61,40 +70,38 @@
 <body>
   <div class="container-fluid p-0">
     <?php require_once "./sidebar.php" ?>
-
     <div id="main-wrapper">
       <div class="main-content">
-        <!-- <div class="row pt-3 pb-3 d-flex align-content-center text-center text-white rounded-4 bg-dark" style="height:100px;">
-          <h2 class="align-middle">Data Images</h2>
-        </div> -->
-        <table class="table">
-          <thead style="height:75px;">
-            <tr>
-              <th class="align-middle" scope="col">ID</th>
-              <th class="align-middle" scope="col">Preview</th>
-              <th class="align-middle" scope="col">Alt</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php foreach ($imageService->list() as $imageData) { ?>
-              <tr>
-                <td class="align-middle"><?= $imageData['id'] ?></td>
-                <td class="align-middle">
-                  <img src="<?php echo $serverUrl . "/" . $imageData['url'] ?>" alt="<?= $imageData['alt'] ?>" style="max-width: 200px; max-height: 200px;">
-                </td>
-                <td class="align-middle"><a href="<?php echo $serverUrl . "/" . $imageData['url'] ?>"><?= $imageData['alt'] ?></a></td>
-                <td>
-                  <a class="btn btn-success" href="images-edit.php?id=<?= $imageData['id'] ?>" role="button">Edit</a>
-                  <a class="btn btn-danger" href="images-delete.php?id=<?= $imageData['id'] ?>" role="button">Delete</a>
-                </td>
-              </tr>
-            <?php } ?>
-          </tbody>
-        </table>
-        <a class="btn btn-primary" href="images-add.php" role="button">Add Image</a>
+        
+        <div class="row pt-3 pb-3 text-center">
+          <h1>Formulir</h1>
+        </div>
+        <form method="POST">
+          <div class="mb-3">
+            <label for="name" class="form-label">Username</label>
+            <input type="text" class="form-control" name="username">
+          </div>
+          <div class="mb-3">
+            <div class="mb-3">
+              <label for="name" class="form-label">Password</label>
+              <input type="text" class="form-control" name="password">
+            </div>
+            <div class="mb-3">
+              <div class="mb-3">
+                <label for="name" class="form-label">Nama</label>
+                <input type="text" class="form-control" name="nama">
+              </div>
+              <div class="mb-3">
+                <label for="role">Role</label>
+                <select class="form-select" name="role" aria-label="role">
+                  <option value="admin">Admin</option>
+                  <option value="user">User</option>
+                </select>
+              </div>
+              <button type="submit" name="submit_user" class="btn btn-primary mt-3">Submit</button>
+        </form>
       </div>
     </div>
   </div>
+  </div>
 </body>
-
-</html>

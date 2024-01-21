@@ -3,7 +3,7 @@ class Database
 {
     private $host = "127.0.0.1";
     private $user = "root";
-    private $pass = "";
+    private $pass = "root";
     private $DB = "portalberita";
 
     private $con;

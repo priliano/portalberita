@@ -3,7 +3,7 @@
 if (isset($_GET['id'])) {
   $nim = $_GET['id'];
 
-  include "koneksi.php";
+  include "config.php";
   $qry = "DELETE FROM login WHERE id = '$id'";
   $exec = mysqli_query($con, $qry);
 

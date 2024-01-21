@@ -1,3 +1,16 @@
+<?php require_once "config.php";
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_user'])) {
+  $id = $_POST['id'];
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+  $nama = $_POST['nama'];
+  $role = $_POST['role'];
+
+  $userService->update($id, $username, $password, $nama, $role);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,19 +22,12 @@
 </head>
 
 <body>
-  <?php
-  $nim = $_GET['id'];
-  include "koneksi.php";
-
-  $qry = "SELECT * FROM login WHERE id = 'id'";
-  $exec = mysqli_query($con, $qry);
-  $data = mysqli_fetch_assoc($exec);
-  ?>
+  <?php $data = $userService->findById($_GET['id']); ?>
   <div class="container mt-4">
     <div class="row pt-3 pb-3 text-center">
       <h1>Form Edit Data User</h1>
     </div>
-    <form action="update.php" method="POST">
+    <form method="POST">
       <div class="mb-3">
         <label for="id" class="form-label">ID</label>
         <input type="number" class="form-control" name="id" value="<?= $data['id'] ?>" style="color:rgba(0, 0, 0, 0.4)" readonly>
