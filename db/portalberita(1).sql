@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2024 at 06:26 AM
+-- Generation Time: Jan 21, 2024 at 04:24 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -24,6 +24,30 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` int(25) NOT NULL,
+  `name` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comment`
+--
+
+CREATE TABLE `comment` (
+  `id` int(25) NOT NULL,
+  `user_id` int(25) NOT NULL,
+  `post_id` int(25) NOT NULL,
+  `message` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `images`
 --
 
@@ -31,7 +55,8 @@ CREATE TABLE `images` (
   `id` int(11) NOT NULL,
   `filename` varchar(255) NOT NULL,
   `size` int(11) NOT NULL,
-  `url` varchar(255) NOT NULL
+  `url` varchar(255) NOT NULL,
+  `alt` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -44,19 +69,46 @@ CREATE TABLE `login` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `nama` varchar(255) NOT NULL,
-  `id` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `role` varchar(25) NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `login`
 --
 
-INSERT INTO `login` (`username`, `password`, `nama`, `id`) VALUES
-('admin', '21232f297a57a5a743894a0e4a801fc3', '', 0);
+INSERT INTO `login` (`username`, `password`, `nama`, `id`, `role`) VALUES
+('priliano', '111', 'Dimas Priliano', 0, 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `posts`
+--
+
+CREATE TABLE `posts` (
+  `title` varchar(25) NOT NULL,
+  `image_id` int(25) NOT NULL,
+  `author_id` int(25) NOT NULL,
+  `category` varchar(25) NOT NULL,
+  `isi` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `comment`
+--
+ALTER TABLE `comment`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `images`
