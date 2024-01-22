@@ -7,7 +7,7 @@ if (isset($_GET['id'])) {
   $exec = mysqli_query($con, $qry);
 
   if ($exec) {
-    echo "<script>alert('Data berhasil dihapus'); window.location = 'category.php'</script>";
+    echo "<script>alert('Data berhasil dihapus'); window.location = 'categories.php'</script>";
   } else {
     echo "Data gagal dihapus";
   }

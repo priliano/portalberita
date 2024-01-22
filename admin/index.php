@@ -65,7 +65,7 @@
     <div id="main-wrapper">
       <div class="main-content">
         <div class="row pt-3 pb-3 d-flex align-content-center text-center text-white rounded-4 bg-dark" style="height:100px;">
-          <h2 class="align-middle">Data User</h2>
+          <h2 class="align-middle" style="color:white;">Data User</h2>
         </div>
         <table class="table">
           <thead style="height:75px;">

@@ -99,14 +99,14 @@ mysqli_close($con);
         <div id="main-wrapper">
             <div class="main-content">
                 <div class="row pt-3 pb-3 d-flex align-content-center text-center text-white rounded-4 bg-dark" style="height:100px;">
-                    <h2 class="align-middle">CATEGORY</h2>
+                    <h2 class="align-middle" style="color:white;">CATEGORY</h2>
                 </div>
 
                 <div class="row justify-content-center">
                     <table class="table" style="text-align: center;">
-                        <thead>
+                    <thead style="height:75px;">
                             <tr>
-                                <th scope="col">Id Category</th>
+                                <th scope="col">ID Category</th>
                                 <th scope="col">Name Category</th>
                                 <th scope="col">Option</th>
                             </tr>
@@ -144,7 +144,7 @@ mysqli_close($con);
                                                     </div>
                                                     <div class="mb-3 mt-3">
                                                         <label for="namacategory">Nama Category :</label>
-                                                        <input type="text" class="form-control" name="namacategory" value="<?= $data['name'] ?>">
+                                                        <input type="text" class="form-control" name="namacategory" value="<?= $data['nama'] ?>">
                                                     </div>
                                                     <button type="submit" class="btn btn-primary" name="edit">Simpan</button>
                                                 </form>
@@ -183,5 +183,4 @@ mysqli_close($con);
         </div>
     </div>
 </body>
-
 </html>

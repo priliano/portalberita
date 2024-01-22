@@ -62,9 +62,9 @@
 
         <div id="main-wrapper">
             <div class="main-content">
-                <!-- <div class="row pt-3 pb-3 d-flex align-content-center text-center text-white rounded-4 bg-dark" style="height:100px;">
-                    <h2 class="align-middle">Data Posts</h2>
-                </div> -->
+                <div class="row pt-3 pb-3 d-flex align-content-center text-center text-white rounded-4 bg-dark" style="height:100px;">
+                    <h2 class="align-middle" style="color:white;">Data Posts</h2>
+                </div> 
                 <table class="table">
                     <thead style="height:75px;">
                         <tr>
