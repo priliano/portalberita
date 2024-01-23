@@ -4,9 +4,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
     $postId = $_GET['id'];
 
     $postData = $postService->findById($postId);
-} else {
-    // Handle invalid request, redirect, or display a message
-    die("Invalid request.");
+    $images = $imageService->list();
+    $categories = $categoryService->list();
+    $authors = $userService->list();
+} else if ($_SERVER["REQUEST_METHOD"] == "POST"  && isset($_GET['id'])) {
+    $postService->update($_POST['id'], $_POST['title'], $_POST['image_id'], $_POST['author_id'], $_POST['category'], $_POST['content']);
 }
 ?>
 
@@ -76,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
             <div class="main-content">
                 <!-- Display the post data in a form for editing -->
                 <h2>Edit Post</h2>
-                <form method="post" action="update_post.php">
+                <form method="post">
                     <input type="hidden" name="id" value="<?= $postData['id'] ?>">
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
@@ -84,15 +86,33 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
                     </div>
                     <div class="mb-3">
                         <label for="image_id" class="form-label">Image ID</label>
-                        <input type="text" class="form-control" id="image_id" name="image_id" value="<?= $postData['image_id'] ?>" required>
+                        <select class="form-control" id="image_id" name="image_id" required>
+                            <?php foreach ($images as $i => $image) { ?>
+                                <option value="<?= $image['id'] ?>" <?php echo $image['id'] == $postData['image_id'] ? "selected='selected'" : '' ?>>
+                                    <?= $image['id'] . " - " . $image['alt'] ?>
+                                </option>
+                            <?php } ?>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="author_id" class="form-label">Author ID</label>
-                        <input type="text" class="form-control" id="author_id" name="author_id" value="<?= $postData['author_id'] ?>" required>
+                        <select class="form-control" id="author_id" name="author_id" required>
+                            <?php foreach ($authors as $author) { ?>
+                                <option value="<?= $author['id'] ?>" <?= $author['id'] == $postData['author_id'] ? "selected" : '' ?>>
+                                    <?= $author['id'] . " - " . $author['nama'] ?>
+                                </option>
+                            <?php } ?>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="category" class="form-label">Category</label>
-                        <input type="text" class="form-control" id="category" name="category" value="<?= $postData['category'] ?>" required>
+                        <select class="form-control" id="category" name="category" required>
+                            <?php foreach ($categories as $category) { ?>
+                                <option value="<?= $category['id'] ?>" <?= $category['id'] == $postData['category'] ? "selected" : '' ?>>
+                                    <?= $category['id'] . " - " . $category['nama'] ?>
+                                </option>
+                            <?php } ?>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="content" class="form-label">Content</label>

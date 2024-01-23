@@ -18,19 +18,18 @@ class Post
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
 
-    public function findByTitle($title)
+    public function listWithImage()
     {
-        $qry = "SELECT * FROM posts WHERE title = ?";
+        $qry = "SELECT p.id, p.title, p.author_id, p.category, p.content, i.url, i.alt FROM posts p LEFT JOIN images i ON p.image_id = i.id ORDER BY p.id DESC";
         $stmt = mysqli_prepare($this->con, $qry);
-        mysqli_stmt_bind_param($stmt, 's', $title);
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
-        return mysqli_fetch_assoc($result);
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
 
     public function findById($id)
     {
-        $qry = "SELECT * FROM posts WHERE id = ?";
+        $qry = "SELECT p.id, p.title, p.author_id, p.category, p.content, i.url, i.alt, a.username AS author_name, c.nama AS category_name FROM posts p LEFT JOIN images i ON p.image_id = i.id LEFT JOIN login a ON p.author_id = a.id LEFT JOIN categories c ON p.category_id = c.id WHERE p.id = ?";
         $stmt = mysqli_prepare($this->con, $qry);
         mysqli_stmt_bind_param($stmt, 'i', $id);
         mysqli_stmt_execute($stmt);

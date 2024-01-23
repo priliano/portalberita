@@ -4,6 +4,7 @@ require_once "../db/connection.php";
 require_once "../db/user.php";
 require_once "../db/image.php";
 require_once "../db/post.php";
+require_once "../db/category.php";
 require_once "../config/logger.php";
 
 $serverName = $_SERVER['SERVER_NAME'];
@@ -16,4 +17,5 @@ $con = $db->con();
 
 $userService = new User($con);
 $postService = new Post($con);
+$categoryService = new Category($con);
 $imageService = new Image($con, "../uploads/");

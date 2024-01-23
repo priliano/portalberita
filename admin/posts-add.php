@@ -90,7 +90,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['post_add'])) {
                     </div>
                     <div class="mb-3">
                         <label for="image_id" class="form-label">Image ID</label>
-                        <input type="text" class="form-control" id="image_id" name="image_id" required>
+                        <select class="form-control" id="image_id" name="image_id" required>
+                            <?php foreach ($imageService->list() as $image) { ?>
+                                <option value="<?= $image['id'] ?>"><?= $image['alt'] ?></option>
+                            <?php } ?>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="author_id" class="form-label">Author ID</label>
