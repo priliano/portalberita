@@ -9,7 +9,7 @@ More information about the license is available here: https://colorlib.com/wp/li
 
 Removing copyright information without the license will result in suspension of your hosting and/or domain name(s).
 
-## anggota kelompol: 
+## anggota kelompol 7: 
  - I Putu Bagus Nanda Widnyana (220010031) 
  - I Made Wira Swartana Putra (220010022)
  - Dimas Priliano (220010089)
