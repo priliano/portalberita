@@ -20,7 +20,7 @@ class Post
 
     public function listWithImage()
     {
-        $qry = "SELECT p.id, p.title, p.author_id, p.category, p.content, i.url, i.alt FROM posts p LEFT JOIN images i ON p.image_id = i.id ORDER BY p.id DESC";
+        $qry = "SELECT p.id, p.title, p.author_id, p.category, p.content, i.url, i.alt, c.nama as category_name  FROM posts p LEFT JOIN images i ON p.image_id = i.id LEFT JOIN categories c ON p.category_id = c.id ORDER BY p.id DESC";
         $stmt = mysqli_prepare($this->con, $qry);
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);

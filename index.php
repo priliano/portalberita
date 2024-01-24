@@ -65,7 +65,7 @@ $first = array_shift($posts);
                                 <div class="trend-top-img">
                                     <img src="<?= $first['url'] ?>" alt="<?= $first['alt'] ?>">
                                     <div class="trend-top-cap">
-                                        <span>Appetizers</span>
+                                        <span><?= $first['category_name'] ?></span>
                                         <h2><a href="details.php?id=<?= $first['id'] ?>"><?= $first['title'] ?></h2>
                                     </div>
                                 </div>
@@ -81,7 +81,7 @@ $first = array_shift($posts);
                                                     <img src="<?= $post['url'] ?>" alt="<?= $post['alt'] ?>">
                                                 </div>
                                                 <div class="trend-bottom-cap">
-                                                    <span class="color1"><?= $post['category'] ?></span>
+                                                    <span class="color1"><?= $post['category_name'] ?></span>
                                                     <h4><a href="details.php?id=<?= $post['id'] ?>"><?= $post['title'] ?></a></h4>
 
                                                 </div>
