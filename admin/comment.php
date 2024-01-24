@@ -76,7 +76,7 @@
                     <thead style="height:75px;">
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Nama User</th>
+                                <th scope="col">Email</th>
                                 <th scope="col">Postingan</th>
                                 <th scope="col">Message</th>
                                 <th scope="col">Actions</th>
@@ -85,14 +85,14 @@
                         <tbody class="table-success">
                             <?php
                             include "config.php";
-                            $qry = "SELECT * FROM comment";
+                            $qry = "SELECT * FROM comments";
                             $exec = mysqli_query($con, $qry);
 
                             while ($data = mysqli_fetch_assoc($exec)) {
                             ?>
                                 <tr>
                                     <td><?= $data['id'] ?></td>
-                                    <td><?= $data['user_id'] ?></td>
+                                    <td><?= $data['email'] ?></td>
                                     <td><?= $data['post_id'] ?></td>
                                     <td>
                                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewmessage<?= $data['id'] ?>">View</button>
