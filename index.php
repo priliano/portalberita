@@ -1,5 +1,10 @@
 <?php require_once "./init.php"; ?>
 
+<?php
+$posts = $postService->listWithImage();
+$first = array_shift($posts);
+?>
+
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -58,51 +63,31 @@
                             <!-- Trending Top -->
                             <div class="trending-top mb-30">
                                 <div class="trend-top-img">
-                                    <img src="assets/img/banner/indonesia.JPG" alt="">
+                                    <img src="<?= $first['url'] ?>" alt="<?= $first['alt'] ?>">
                                     <div class="trend-top-cap">
-                                        <span>Hot News</span>
-                                        <h2><a href="details.html">Indonesia menang meyakinkan 1-0 <br>atas Vietnam di ajang Piala Asia AFC Cup 2024</a></h2>
+                                        <span>Appetizers</span>
+                                        <h2><a href="details.php?id=<?= $first['id'] ?>"><?= $first['title'] ?></h2>
                                     </div>
                                 </div>
                             </div>
                             <!-- Trending Bottom -->
                             <div class="trending-bottom">
                                 <div class="row">
-                                    <div class="col-lg-4">
-                                        <div class="single-bottom mb-35">
-                                            <div class="trend-bottom-img mb-30">
-                                                <img src="assets/img/banner/diabetes.jpeg" alt="">
-                                            </div>
-                                            <div class="trend-bottom-cap">
-                                                <span class="color1">Lifestyle</span>
-                                                <h4><a href="details.html">Kasus Diabetes Anak di Kota Surabaya Meningkat</a></h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="single-bottom mb-35">
-                                            <div class="trend-bottom-img mb-30">
-                                                <img src="assets/img/banner/bultang.jpeg" alt="">
-                                            </div>
-                                            <div class="trend-bottom-cap">
-                                                <span class="color2">Sports</span>
-                                                <h4>
-                                                    <h4><a href="details.html">Fajar/Rian Tersingkir, india Tanpa Wakil di Semifinal India Open</a></h4>
-                                                </h4>
+                                    <?php foreach ($posts as $post) { ?>
+
+                                        <div class="col-lg-4">
+                                            <div class="single-bottom mb-35">
+                                                <div class="trend-bottom-img mb-30">
+                                                    <img src="<?= $post['url'] ?>" alt="<?= $post['alt'] ?>">
+                                                </div>
+                                                <div class="trend-bottom-cap">
+                                                    <span class="color1"><?= $post['category'] ?></span>
+                                                    <h4><a href="details.php?id=<?= $post['id'] ?>"><?= $post['title'] ?></a></h4>
+
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="single-bottom mb-35">
-                                            <div class="trend-bottom-img mb-30">
-                                                <img src="assets/img/banner/prabowo.jpeg" alt="">
-                                            </div>
-                                            <div class="trend-bottom-cap">
-                                                <span class="color3">Politics</span>
-                                                <h4><a href="details.html">Elektabilitas Prabowo-Gibran Capai 50 Persen dalam 2 Survei, Apa Alasannya?</a></h4>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -137,17 +122,19 @@
                             </div>
                             <div class="trand-right-single d-flex">
                                 <div class="trand-right-img">
-                                        <style>
-                                            .trand-right-img {
-                                                float: right;
-                                                margin-left: 10px;
-                                            }
-                                            .trand-right-img img {
-                                                max-width: 100px; /* Menentukan lebar maksimum foto */
-                                                height: auto;
-                                            }
-                                        </style>
-                                        <img src="assets/img/trending/nba.jpg" alt="">
+                                    <style>
+                                        .trand-right-img {
+                                            float: right;
+                                            margin-left: 10px;
+                                        }
+
+                                        .trand-right-img img {
+                                            max-width: 100px;
+                                            /* Menentukan lebar maksimum foto */
+                                            height: auto;
+                                        }
+                                    </style>
+                                    <img src="assets/img/trending/nba.jpg" alt="">
                                 </div>
                                 <div class="trand-right-cap">
                                     <span class="color4">Basket</span>
@@ -653,7 +640,7 @@
                                     <div class="what-img">
                                         <img src="assets/img/news/gas.jpeg" alt="">
                                     </div>
-                                    <div class="what-cap" style="padding-bottom: 108px;">
+                                    <div class="what-cap">
                                         <span class="color1">Chek This Out</span>
                                         <h4><a href="#">Harga Minyak dan Gas Kembali Naik Karena Meningkatnya Risiko Pasokan</a></h4>
                                     </div>
@@ -662,7 +649,7 @@
                                     <div class="what-img">
                                         <img src="assets/img/news/world.jpg" alt="">
                                     </div>
-                                    <div class="what-cap" style="padding-bottom: 108px;">
+                                    <div class="what-cap">
                                         <span class="color1">Chek This Out</span>
                                         <h4><a href="#">WEF luncurkan dana 45 Triliun untuk atasi perubahan iklim</a></h4>
                                     </div>
@@ -671,7 +658,7 @@
                                     <div class="what-img">
                                         <img src="assets/img/news/russia.jpg" alt="">
                                     </div>
-                                    <div class="what-cap" style="padding-bottom: 108px;">
+                                    <div class="what-cap">
                                         <span class="color1">Chek This Out</span>
                                         <h4><a href="#">Serangan Rusia melemahkan Ukraina</a></h4>
                                     </div>
@@ -680,7 +667,7 @@
                                     <div class="what-img">
                                         <img src="assets/img/news/haley.jpeg" alt="">
                                     </div>
-                                    <div class="what-cap" style="padding-bottom: 108px;">
+                                    <div class="what-cap">
                                         <span class="color1">Chek This Out</span>
                                         <h4><a href="#">Haley Akan Menyiarkan Iklan di New Hampshire</a></h4>
                                     </div>
