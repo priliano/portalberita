@@ -29,7 +29,7 @@
                         <!-- Logo -->
                         <div class="col-xl-3 col-lg-3 col-md-3">
                             <div class="logo">
-                                <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                                <a href="index.html"><img src="assets/img/logo/ZenZet.png" style="height:120px" alt="logo"></a>
                             </div>
                         </div>
                         <div class="col-xl-9 col-lg-9 col-md-9">
@@ -46,7 +46,7 @@
                         <div class="col-xl-10 col-lg-10 col-md-12 header-flex">
                             <!-- sticky -->
                             <div class="sticky-logo">
-                                <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                                <a href="index.php"><img src="assets/img/logo/logo.png" alt=""></a>
                             </div>
                             <!-- Main-menu -->
                             <div class="main-menu d-none d-md-block">
@@ -55,16 +55,16 @@
                                         <li><a href="index.php">Home</a></li>
                                         <li><a href="category.php">Category</a></li>
                                         <li><a href="about.php">About</a></li>
-                                        <li><a href="latest-news.php">Latest News</a></li>
+                                        <!-- <li><a href="latest-news.php">Latest News</a></li> -->
                                         <li><a href="contact.php">Contact</a></li>
-                                        <li><a href="#">Pages</a>
+                                        <!-- <li><a href="#">Pages</a>
                                             <ul class="submenu">
                                                 <li><a href="elements.php">Element</a></li>
                                                 <li><a href="blog.php">Blog</a></li>
                                                 <li><a href="single-blog.php">Blog Details</a></li>
                                                 <li><a href="details.php">Categori Details</a></li>
                                             </ul>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </nav>
                             </div>
