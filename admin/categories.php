@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['edit'])) {
     $idcategory = $_POST["idcategory"];
     $namacategory = $_POST["namacategory"];
-    $query = "UPDATE categories SET name='$namacategory' WHERE id='$idcategory'";
+    $query = "UPDATE categories SET nama='$namacategory' WHERE id='$idcategory'";
     $result = mysqli_query($con, $query);
 
     if ($result) {

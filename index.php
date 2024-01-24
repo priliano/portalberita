@@ -1,5 +1,10 @@
 <?php require_once "./init.php"; ?>
 
+<?php
+$posts = $postService->listWithImage();
+$first = array_shift($posts);
+?>
+
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -58,51 +63,31 @@
                             <!-- Trending Top -->
                             <div class="trending-top mb-30">
                                 <div class="trend-top-img">
-                                    <img src="assets/img/banner/indonesia.JPG" alt="">
+                                    <img src="<?= $first['url'] ?>" alt="<?= $first['alt'] ?>">
                                     <div class="trend-top-cap">
-                                        <span>Hot News</span>
-                                        <h2><a href="details.html">Indonesia menang meyakinkan 1-0 <br>atas Vietnam di ajang Piala Asia AFC Cup 2024</a></h2>
+                                        <span>Appetizers</span>
+                                        <h2><a href="details.php?id=<?= $first['id'] ?>"><?= $first['title'] ?></h2>
                                     </div>
                                 </div>
                             </div>
                             <!-- Trending Bottom -->
                             <div class="trending-bottom">
                                 <div class="row">
-                                    <div class="col-lg-4">
-                                        <div class="single-bottom mb-35">
-                                            <div class="trend-bottom-img mb-30">
-                                                <img src="assets/img/banner/diabetes.jpeg" alt="">
-                                            </div>
-                                            <div class="trend-bottom-cap">
-                                                <span class="color1">Lifestyle</span>
-                                                <h4><a href="details.html">Kasus Diabetes Anak di Kota Surabaya Meningkat</a></h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="single-bottom mb-35">
-                                            <div class="trend-bottom-img mb-30">
-                                                <img src="assets/img/banner/bultang.jpeg" alt="">
-                                            </div>
-                                            <div class="trend-bottom-cap">
-                                                <span class="color2">Sports</span>
-                                                <h4>
-                                                    <h4><a href="details.html">Fajar/Rian Tersingkir, india Tanpa Wakil di Semifinal India Open</a></h4>
-                                                </h4>
+                                    <?php foreach ($posts as $post) { ?>
+
+                                        <div class="col-lg-4">
+                                            <div class="single-bottom mb-35">
+                                                <div class="trend-bottom-img mb-30">
+                                                    <img src="<?= $post['url'] ?>" alt="<?= $post['alt'] ?>">
+                                                </div>
+                                                <div class="trend-bottom-cap">
+                                                    <span class="color1"><?= $post['category'] ?></span>
+                                                    <h4><a href="details.php?id=<?= $post['id'] ?>"><?= $post['title'] ?></a></h4>
+
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="single-bottom mb-35">
-                                            <div class="trend-bottom-img mb-30">
-                                                <img src="assets/img/banner/prabowo.jpeg" alt="">
-                                            </div>
-                                            <div class="trend-bottom-cap">
-                                                <span class="color3">Politics</span>
-                                                <h4><a href="details.html">Elektabilitas Prabowo-Gibran Capai 50 Persen dalam 2 Survei, Apa Alasannya?</a></h4>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
