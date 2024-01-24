@@ -137,17 +137,19 @@
                             </div>
                             <div class="trand-right-single d-flex">
                                 <div class="trand-right-img">
-                                        <style>
-                                            .trand-right-img {
-                                                float: right;
-                                                margin-left: 10px;
-                                            }
-                                            .trand-right-img img {
-                                                max-width: 100px; /* Menentukan lebar maksimum foto */
-                                                height: auto;
-                                            }
-                                        </style>
-                                        <img src="assets/img/trending/nba.jpg" alt="">
+                                    <style>
+                                        .trand-right-img {
+                                            float: right;
+                                            margin-left: 10px;
+                                        }
+
+                                        .trand-right-img img {
+                                            max-width: 100px;
+                                            /* Menentukan lebar maksimum foto */
+                                            height: auto;
+                                        }
+                                    </style>
+                                    <img src="assets/img/trending/nba.jpg" alt="">
                                 </div>
                                 <div class="trand-right-cap">
                                     <span class="color4">Basket</span>
@@ -653,7 +655,7 @@
                                     <div class="what-img">
                                         <img src="assets/img/news/gas.jpeg" alt="">
                                     </div>
-                                    <div class="what-cap" style="padding-bottom: 108px;">
+                                    <div class="what-cap">
                                         <span class="color1">Chek This Out</span>
                                         <h4><a href="#">Harga Minyak dan Gas Kembali Naik Karena Meningkatnya Risiko Pasokan</a></h4>
                                     </div>
@@ -662,7 +664,7 @@
                                     <div class="what-img">
                                         <img src="assets/img/news/world.jpg" alt="">
                                     </div>
-                                    <div class="what-cap" style="padding-bottom: 108px;">
+                                    <div class="what-cap">
                                         <span class="color1">Chek This Out</span>
                                         <h4><a href="#">WEF luncurkan dana 45 Triliun untuk atasi perubahan iklim</a></h4>
                                     </div>
@@ -671,7 +673,7 @@
                                     <div class="what-img">
                                         <img src="assets/img/news/russia.jpg" alt="">
                                     </div>
-                                    <div class="what-cap" style="padding-bottom: 108px;">
+                                    <div class="what-cap">
                                         <span class="color1">Chek This Out</span>
                                         <h4><a href="#">Serangan Rusia melemahkan Ukraina</a></h4>
                                     </div>
@@ -680,7 +682,7 @@
                                     <div class="what-img">
                                         <img src="assets/img/news/haley.jpeg" alt="">
                                     </div>
-                                    <div class="what-cap" style="padding-bottom: 108px;">
+                                    <div class="what-cap">
                                         <span class="color1">Chek This Out</span>
                                         <h4><a href="#">Haley Akan Menyiarkan Iklan di New Hampshire</a></h4>
                                     </div>
